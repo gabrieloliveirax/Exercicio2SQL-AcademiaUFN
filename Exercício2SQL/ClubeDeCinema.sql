@@ -1,0 +1,20 @@
+CREATE TABLE Membro(
+	ID SERIAL PRIMARY KEY,
+	Nome VARCHAR(20),
+	Email VARCHAR(20)
+);
+
+CREATE TABLE Filme(
+	ID SERIAL PRIMARY KEY,
+	Titulo VARCHAR(20),
+	Diretor VARCHAR(20),
+	Genero VARCHAR(20)
+);
+
+CREATE TABLE Assitencia(
+	Membro_ID INT,
+	Filme_ID INT,
+	DataAssistencia DATE,
+	FOREIGN KEY (MembrO_ID) REFERENCES Membro(ID),
+	FOREIGN KEY (Filme_ID) REFERENCES Filme(ID)
+);

@@ -1,0 +1,23 @@
+CREATE TABLE Leitor (
+	ID SERIAL PRIMARY KEY,
+	Nome VARCHAR(255),
+	Endereco VARCHAR(255),
+	NumeroTelefone VARCHAR(20)
+);
+
+CREATE TABLE Livro(
+	ISBN VARCHAR(20) PRIMARY KEY,
+	Titulo VARCHAR(20),
+	Autor VARCHAR(20),
+	AnoPublicacao INT
+);
+
+CREATE TABLE Emprestimo(
+	ID SERIAL PRIMARY KEY,
+	Leitor_ID INT,
+	Livro_ISBN VARCHAR(20),
+	DataEmprestimo DATE,
+	DataDevolucao DATE,
+	FOREIGN KEY (Leitor_ID) REFERENCES Leitor(ID),
+	FOREIGN KEY (Livro_ISBN) REFERENCES Livro(ISBN)
+);
